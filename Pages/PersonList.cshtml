@@ -1,0 +1,38 @@
+﻿@page
+@model TestExamples.Pages.PersonListModel
+@{
+    ViewData["Title"] = "PersonList";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in Model.People)
+        {
+            // list out each of the properties.
+        <tr>
+            <td>@person.ChildFirstNAme</td>
+            <td>@person.PhoneMobile</td>
+            <td>@person.StartDate</td>
+            <td>@person.DateOfBirth</td>
+
+            <td> <a asp-page="PersonDetails" asp-route-id="@person.ChildFirstNAme">Details</a> </td>
+            <td> <a asp-page="EditPerson" asp-route-id="@person.ChildFirstNAme">Modify</a> </td>
+            <td> <a asp-page="DeletePerson" asp-route-id="@person.ChildFirstNAme">Delete</a> </td>
+        </tr>
+        }
+    </tbody>
+
+
+</table>
+
+<br />  
+<h2>@Model.Message</h2>
+

@@ -1,0 +1,25 @@
+﻿@page "{id}"
+@model TestExamples.Pages.DeletePersonModel
+@{
+    ViewData["Title"] = "DeletePerson";
+}
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <input asp-for="Person.ChildFirstNAme" hidden>
+    </div>
+    <div>
+        <label asp-for=Person.DateOfBirth></label>
+        <input asp-for=Person.DateOfBirth>
+    </div>
+    <div>
+        <label asp-for=Person.PhoneMobile></label>
+        <input asp-for=Person.PhoneMobile>
+    </div>
+    <div>
+        <label asp-for=Person.StartDate></label>
+        <input asp-for=Person.StartDate>
+    </div>
+    <button type="submit">Press Me if you want to remove this person from the database</button>
+</form>

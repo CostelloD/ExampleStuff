@@ -1,0 +1,53 @@
+﻿@page
+@model TestExamples.Pages.ConfirmPersonModel
+@{
+    ViewData["Title"] = "ConfirmPerson";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListStudents</title>
+</head>
+<body>
+
+    <div class="row">
+        <div class="col" style="border-radius:5px">
+            <h3 style="padding:10px; text-align:center">Thank you for your application, details are summarised below</h3>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    <div class="childform">
+        <fieldset class="panel-body">
+            @* list basic details of application *@
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label asp-for="Person.ChildFirstNAme">Firstname</label>
+                    <input asp-for="Person.ChildFirstNAme" class="form-control" id="inputEmail4" placeholder="First Name">
+                </div>
+            </div>
+
+
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Person.StartDate">Start Date</label>
+                    <br />
+                    <span>@Model.Person.StartDate.ToString()</span>
+
+                </div>
+
+            </div>
+        </fieldset>
+    </div>
+    <br />
+    <br />
+    <h2>@TempData["Message"]</h2>
+
+</body>
+</html>
+

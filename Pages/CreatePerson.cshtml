@@ -1,0 +1,223 @@
+﻿@page
+@model TestExamples.Pages.CreatePersonModel
+@{
+    ViewData["Title"] = "CreatePerson";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+
+</head>
+<body>
+
+
+
+
+    <div class="row">
+        <div class="col" style="border-radius:5px">
+            <h3 style=" text-align:center">Please fill in the fields below and click Submit when done</h3>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    <form method="post">
+
+        <div class="childform">
+
+            <fieldset class="panel-body">
+                <legend style="text-align:center">Please fill in your childs details below</legend>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Person.ChildFirstNAme">Firstname</label>
+                        <input asp-for="Person.ChildFirstNAme" class="form-control" placeholder="First Name">
+                        <span asp-validation-for="Person.ChildFirstNAme"></span>
+
+
+                    </div>
+                    @*<div class="form-group col-md-6">
+                            <label asp-for="Student.ChildSurname">Surname</label>
+                            <input asp-for="Student.ChildSurname" class="form-control" placeholder="Surname">
+                            <span asp-validation-for="Student.ChildSurname"></span>
+                        </div>*@
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Person.DateOfBirth">Date Of Birth</label>
+                        <input asp-for="Person.DateOfBirth" class="form-control">
+                        <span asp-validation-for="Person.DateOfBirth"></span>
+                    </div>
+                    @*<div class="form-group col-md-4">
+                            <span>Please select your Childs Gender</span>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" value="Male" asp-for="Student.Gender">
+                                <label class="form-check-label" asp-for="Student.Gender">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" value="Female" asp-for="Student.Gender">
+                                <label class="form-check-label" for="exampleRadios2">Female</label>
+                            </div>
+                            <span asp-validation-for="Student.Gender"></span>
+
+                        </div>*@
+                    @*<div class="form-group col-md-2">
+                            <label asp-for="Student.PPSNumber">PPS Number</label>
+                            <input asp-for="Student.PPSNumber" class="form-control">
+                            <span asp-validation-for="Student.PPSNumber"></span>
+                        </div>*@
+                </div>
+
+            </fieldset>
+        </div>
+        <br />
+        <br />
+
+
+
+
+
+
+        <div class="guardianform">
+            <fieldset class="panel-body">
+
+
+                <legend style="text-align:center">Please fill in your personal details below:</legend>
+
+                @*<div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="Student.FirstName">Firstname</label>
+                            <input asp-for="Student.FirstName" class="form-control" id="inputEmail4" placeholder="First Name">
+                            <span asp-validation-for="Student.FirstName"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Student.SecondName">Surname</label>
+                            <input asp-for="Student.SecondName" class="form-control" placeholder="Surname">
+                            <span asp-validation-for="Student.SecondName"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Student.Address">Address</label>
+                        <input asp-for="Student.Address" class="form-control" placeholder="1234 Main St">
+                        <span asp-validation-for="Student.Address"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Student.Guardian">Select relationship to child from list:</label>
+                        <select class="form-control" asp-items="Html.GetEnumSelectList<CreateModel.Relationship>()" asp-for="Student.Guardian" size="4"></select>
+                    </div>*@
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label asp-for="Person.PhoneMobile">Mobile Number</label>
+                        <input asp-for="Person.PhoneMobile" class="form-control" id="Mobile">
+                        <span asp-validation-for="Person.PhoneMobile"></span>
+                    </div>
+                    @*<div class="form-group col-md-4">
+                            <label asp-for="Student.PhoneSecond">Second Contact Number</label>
+                            <input asp-for="Student.PhoneSecond" class="form-control" id="Alternate Number">
+                            <span asp-validation-for="Student.PhoneSecond"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="Student.PhoneThird">Third Contact Number</label>
+                            <input asp-for="Student.PhoneThird" class="form-control" id="Other">
+                            <span asp-validation-for="Student.PhoneThird"></span>
+                        </div>*@
+                </div>
+
+
+                @*<div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="Student.FirstEmailAddress">email address</label>
+                            <input asp-for="Student.FirstEmailAddress" class="form-control" placeholder="email address">
+                            <span asp-validation-for="Student.FirstEmailAddress"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="Student.FirstEmailAddress">Alternate email address</label>
+                            <input asp-for="Student.FirstEmailAddress" class="form-control" placeholder="email address">
+                            <span asp-validation-for="Student.SecondEmailAddress"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="Student.DaysRequested">Please select the days that you require (Note: you can hold down the Ctrl button to select multiple days)</label>
+                            <br />
+                            @* use custom enum for days to render selection list and trigger Calculate cost whenever changed*@
+                @*<select id="SelectedDays" name="Days" size="5" multiple onchange="Calculate()">
+                        @{
+                            foreach (var day in Enum.GetNames(typeof(CreateModel.SelectedDays)))
+                            {
+                                <option value="value">@day.ToString()</option>
+                            }
+                        }
+                    </select>
+                    <br />
+                    @* hidden input for the daysrequested value calculated by the JS *@
+                @*<input type="hidden" asp-for=Student.DaysRequested id="primedays" />
+                        <span asp-validation-for="Student.DaysRequested"></span>
+                    </div>*@
+
+                @* values for full/part time saved as int and onclick triggers calculation of cost client side *@
+                @*<div class="form-group col-md-6">
+                        <div class="form-check-inline">
+                            <span style="font:bolder">Please Select Full or Partime</span><br />
+                            <input type="radio" id="fulltime" value="1" asp-for="Student.HoursRequested" onclick="Calculate()">
+                            <label class="form-check-label" asp-for="Student.HoursRequested">Fulltime</label>
+                        </div>
+                        <div class="form-check-inline">
+                            <input type="radio" id="partime" value="0" asp-for="Student.HoursRequested" onclick="Calculate()">
+                            <label class="form-check-label" asp-for="Student.HoursRequested">Partime</label>
+                        </div>
+                        <span asp-validation-for="Student.HoursRequested"></span>
+                    </div>*@
+                @*</div>*@
+
+
+                <div class="form-group col-md-6">
+                    <label asp-for="Person.StartDate">Start Date</label>
+                    <input asp-for="Person.StartDate" class="form-control" id="startdate">
+                    <span asp-validation-for="Person.StartDate"></span>
+                </div>
+
+
+                @* Rnder output from JS calculate function *@
+                @*<div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="numberofdays">Number of days</label>
+                            <span id="numberofdays" class="spans"></span>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="price">Cost per Week</label>
+                            <span id="price" class="spans"></span>
+                        </div>
+                    </div>
+                    <br /> <br />*@
+
+                <button type="submit" class="btn btn-primary">Submit Application</button>
+
+            </fieldset>
+        </div>
+        <br />
+
+        @* Server side list of validation errors *@
+
+        <div asp-validation-summary="All" id="valdiv"></div>
+
+    </form>
+
+
+
+</body>
+</html>
+
+
+
